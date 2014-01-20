@@ -1,0 +1,9 @@
+Package: bib
+Type: Package
+Title: Blend It Bayes! Toolbox
+Version: 0.1
+Date: 2014-01-20
+Author: Jo-fai Chow
+Maintainer: Jo-fai Chow <jofai.chow@gmail.com>
+Description: A collection of my favourite data mining algorithms and routines.
+License: MIT
