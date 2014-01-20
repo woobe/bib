@@ -32,8 +32,6 @@ Don't forget to check out my [blog](http://blenditbayes.blogspot.co.uk/search/la
 Activate multiple CPU cores for parallel computation (e.g. foreach) in R.
 
 ```
-Command:
-
 activate_core(8)
 ```
 ```
@@ -47,8 +45,6 @@ Activaing parallel processing ... 8 cores have been successfully activated in 2.
 Check and install some of the key R packages for data mining (if they have not been installed yet).
 
 ```
-Command:
-
 install_key_packages()
 ```
 ```
@@ -65,8 +61,6 @@ Checking Package: randomForest ...already installed.
 Generate random numbers for demo purposes.
 
 ```
-Command:
-
 set.seed(1234)
 df <- generate_dummy_xy(1000, 5, 1)
 head(df)
@@ -88,11 +82,8 @@ Output:
 Simple stopwatch timer functions (measurement in seconds).
 
 ```
-Command:
-
 time_start <- start_timer()
 (... wait for a few seconds ...)
-
 time_diff <- stop_timer(time_start)
 print(time_diff)
 ```
@@ -101,8 +92,4 @@ Output:
 
 4.364
 ```
-
-
-
-
 
