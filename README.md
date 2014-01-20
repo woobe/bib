@@ -1,7 +1,7 @@
 bib
 ===
 
-"**B**lend **I**t **B**ayes!" R Package - A Collection of Data Mining Functions and Routines.
+"**B**lend **I**t **B**ayes!" Toolbox - A Collection of My Favourite Data Mining Algorithms and Routines.
 
 
 ## Installation
@@ -19,3 +19,7 @@ devtools::install_github("bib","woobe")
 ```
 
 Enjoy!
+
+## My Blog
+
+Don't forget to check out my [blog](http://blenditbayes.blogspot.co.uk/search/label/R) with random stuff about R!
