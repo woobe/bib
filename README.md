@@ -1,8 +1,9 @@
 bib: Blend It Bayes! Data Mining Toolbox (v0.0.2)
 ===
 
-This tooblox is a collection of my favourite data mining algorithms and routines. 
-It includes:
+## Introduction
+
+This tooblox is a collection of my favourite data mining wrapper functions. It includes:
 
 * Data processing (normalise, split, denoising etc.)
 * Feature selection (correlation, variable importance etc.)
@@ -11,8 +12,11 @@ It includes:
 * Ensembles (simple averaging, stacking with replacement and Bayesian methods)
 * Data visualisation (mainly via [ggplot2](http://ggplot2.org/))
 * Auto reporting (via [ggplot2](http://ggplot2.org/) and [knitr](http://yihui.name/knitr/))
+* Miscellaneous wrapper functions to make life easier
 
 Please note that this package is still at its early stage. **First stable release will be version 0.1**.
+
+Don't forget to check out my [blog](http://blenditbayes.blogspot.co.uk/search/label/R) with random stuff about R!
 
 ## Installation
 
@@ -30,12 +34,7 @@ devtools::install_github("bib", "woobe")
 
 Enjoy!
 
-## My Blog
-
-Don't forget to check out my [blog](http://blenditbayes.blogspot.co.uk/search/label/R) with random stuff about R!
-
 ## Example Usage
-
 
 ### activate_core(num_core)
 
@@ -50,12 +49,26 @@ Output:
 Activaing parallel processing ... 8 cores have been successfully activated in 2.254 seconds.
 ```
 
-### install_key_packages()
+### auto_load(list_pkg)
+
+Load package and automatically install it if it has not been installed.
+
+```
+auto_load(c("caret", "randomForest"))
+```
+```
+Output:
+
+Checking Package: caret ... already installed.
+Checking Package: randomForest ... already installed.
+```
+
+### install_key_pkg()
 
 Check and install some of the key R packages for data mining (if they have not been installed yet).
 
 ```
-install_key_packages()
+install_key_pkg()
 ```
 ```
 Output:
@@ -72,8 +85,8 @@ Generate random numbers for demo purposes.
 
 ```
 set.seed(1234)
-df <- generate_dummy_xy(1000, 5, 1)
-head(df)
+xy <- generate_dummy_xy(num_sample = 1000, num_feature = 5, num_outcome = 1)
+head(xy)
 ```
 ```
 Output:
