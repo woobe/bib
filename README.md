@@ -1,14 +1,16 @@
 bib: Blend It Bayes! Data Mining Toolbox (v0.0.2)
 ===
 
-A collection of my favourite data mining algorithms and routines:
+This tooblox is a collection of my favourite data mining algorithms and routines. 
+It includes:
 
-* Data processing
-* Feature selection
-* Feature extraction (deep learning)
-* Model parameter fine-tuning
-* Ensembles (simple average, stacking with replacement and Bayesian methods)
-* Data visualisation
+* Data processing (normalise, split, denoising etc.)
+* Feature selection (correlation, variable importance etc.)
+* Feature extraction (deep learning with RBM)
+* Model parameters fine-tuning (via [caret](http://caret.r-forge.r-project.org/))
+* Ensembles (simple averaging, stacking with replacement and Bayesian methods)
+* Data visualisation (mainly via [ggplot2](http://ggplot2.org/))
+* Auto reporting (via [ggplot2](http://ggplot2.org/) and [knitr](http://yihui.name/knitr/))
 
 Please note that this package is still at its early stage. **First stable release will be version 0.1**.
 
@@ -91,7 +93,11 @@ Simple stopwatch timer functions (measurement in seconds).
 
 ```
 time_start <- start_timer()
-(... wait for a few seconds ...)
+```
+
+(... do something and wait for a few seconds ...)
+
+```
 time_diff <- stop_timer(time_start)
 print(time_diff)
 ```
