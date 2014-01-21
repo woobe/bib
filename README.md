@@ -1,6 +1,8 @@
 bib: Blend It Bayes! Data Mining Toolbox (v0.0.2)
 ===
 
+<a href="http://cran.r-project.org/web/packages/devtools/index.html" target="_blank">devtools</a>
+
 ## Introduction
 
 This tooblox is a collection of my favourite data mining wrapper functions. It includes:
@@ -8,19 +10,19 @@ This tooblox is a collection of my favourite data mining wrapper functions. It i
 * Data processing (normalise, split, denoising etc.)
 * Feature selection (correlation, variable importance etc.)
 * Feature extraction (deep learning with RBM)
-* Model parameters fine-tuning (via [caret](http://caret.r-forge.r-project.org/))
+* Model parameters fine-tuning (via <a href="http://caret.r-forge.r-project.org" target="_blank">caret</a>)
 * Ensembles (simple averaging, stacking with replacement and Bayesian methods)
-* Data visualisation (mainly via [ggplot2](http://ggplot2.org/))
-* Auto reporting (via [ggplot2](http://ggplot2.org/) and [knitr](http://yihui.name/knitr/))
+* Data visualisation (mainly via <a href="http://ggplot2.org/" target="_blank">ggplot2</a>)
+* Auto reporting (via <a href="http://ggplot2.org/" target="_blank">ggplot2</a> and <a href="http://yihui.name/knitr/" target="_blank">knitr</a>)
 * Miscellaneous wrapper functions to make life easier
 
 Please note that this package is still at its early stage. **First stable release will be version 0.1**.
 
-Don't forget to check out my [blog](http://blenditbayes.blogspot.co.uk/search/label/R) with random stuff about R!
+Don't forget to check out my <a href="http://blenditbayes.blogspot.co.uk/search/label/R" target="_blank">blog</a> with random stuff about R!
 
 ## Installation
 
-In order to install this R package directly from github, you will need to install [Hadley Wickham](http://had.co.nz/)'s [devtools](http://cran.r-project.org/web/packages/devtools/index.html) first.
+In order to install this R package directly from github, you will need to install <a href="http://had.co.nz/" target="_blank">Hadley Wickham</a>'s <a href="http://cran.r-project.org/web/packages/devtools/index.html" target="_blank">devtools</a> first.
 
 ```
 install.packages("devtools")
