@@ -1,8 +1,6 @@
 bib: Blend It Bayes! Data Mining Toolbox (v0.0.2)
 ===
 
-<a href="http://cran.r-project.org/web/packages/devtools/index.html" target="_blank">devtools</a>
-
 ## Introduction
 
 This tooblox is a collection of my favourite data mining wrapper functions. It includes:
