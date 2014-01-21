@@ -20,9 +20,9 @@ install_key_packages <- function() {
     
     ## Install if needed
     if (temp_check) {
-      cat("already installed.\n")
+      cat(" already installed.\n")
     } else {
-      cat("not there ... now installing ...\n")
+      cat(" not there ... now installing ...\n")
       suppressMessages(install.packages(list_package[num_pkg]))
     }
     
@@ -39,9 +39,9 @@ install_key_packages <- function() {
   
   ## Install if needed
   if (temp_check) {
-    cat("already installed.\n")
+    cat(" already installed.\n")
   } else {
-    cat("not there ... now installing ...\n")
+    cat(" not there ... now installing ...\n")
     suppressMessages(devtools::install_github('rstudio/shinyapps'))
   }
   

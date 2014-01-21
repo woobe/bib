@@ -1,8 +1,16 @@
-bib
+bib: Blend It Bayes! Data Mining Toolbox (v0.0.2)
 ===
 
-"**B**lend **I**t **B**ayes!" Toolbox - A Collection of My Favourite Data Mining Algorithms and Routines.
+A collection of my favourite data mining algorithms and routines:
 
+* Data processing
+* Feature selection
+* Feature extraction (deep learning)
+* Model parameter fine-tuning
+* Ensembles (simple average, stacking with replacement and Bayesian methods)
+* Data visualisation
+
+Please note that this package is still at its early stage. **First stable release will be version 0.1**.
 
 ## Installation
 
@@ -50,9 +58,9 @@ install_key_packages()
 ```
 Output:
 
-Checking Package: devtools ...already installed.
-Checking Package: caret ...already installed.
-Checking Package: randomForest ...already installed.
+Checking Package: devtools ... already installed.
+Checking Package: caret ... already installed.
+Checking Package: randomForest ... already installed.
 ... 
 ```
 

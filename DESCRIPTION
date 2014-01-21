@@ -1,7 +1,7 @@
 Package: bib
 Type: Package
-Title: Blend It Bayes! Toolbox
-Version: 0.1
+Title: Blend It Bayes! Data Mining Toolbox
+Version: 0.0.2
 Date: 2014-01-20
 Author: Jo-fai Chow
 Maintainer: Jo-fai Chow <jofai.chow@gmail.com>
