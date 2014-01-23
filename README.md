@@ -120,3 +120,50 @@ Output:
 4.364
 ```
 
+### sys_info() and session_info()
+
+I got fed up with Sys.info() and sessionInfo(). So here are the same functions with consistent naming convention.
+
+```
+sys_info()
+```
+```
+Output:
+
+                                     sysname                                      release 
+                                     "Linux"                          "3.11.0-15-generic" 
+                                     version                                     nodename 
+"#23-Ubuntu SMP Mon Dec 9 18:17:04 UTC 2013"                                     "ubuntu" 
+                                     machine                                        login 
+                                    "x86_64"                                    "unknown" 
+                                        user                               effective_user 
+                                      "xxxx"                                       "xxxx" 
+```
+
+```
+session_info()
+```
+```
+Output:
+
+R version 3.0.2 (2013-09-25)
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+locale:
+ [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C               LC_TIME=en_GB.UTF-8        LC_COLLATE=en_GB.UTF-8    
+ [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_GB.UTF-8    LC_PAPER=en_GB.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] bib_0.0.2
+
+loaded via a namespace (and not attached):
+[1] tools_3.0.2
+```
+
+
+
+
