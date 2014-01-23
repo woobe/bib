@@ -5,7 +5,7 @@ install_key_pkg <- function() {
   list_pkg <- c("devtools","caret","randomForest","e1071","kernlab","doSNOW",
                     "knitr","doSNOW","Rserve","shiny","forecast","ffbase","gbm",
                     "dplyr", "data.table","microbenchmark","ggmap","jsonlite",
-                    "roxygen2")
+                    "roxygen2", "animation")
   
   for (num_pkg in 1:length(list_pkg)) {  
     
