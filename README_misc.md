@@ -43,7 +43,8 @@ Output:
 
 Checking Package: devtools ... already installed.
 Checking Package: caret ... already installed.
-Checking Package: randomForest ... already installed.
+...
+Checking Package: rCharts ... not there ... now installing ...
 ... 
 ```
 
