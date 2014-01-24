@@ -1,4 +1,4 @@
-#' Selecting best features in x based on known y
+#' Select best features in x based on known y
 
 select_feature <- function(x, y, method = "fastest", verbose = TRUE) {
   
