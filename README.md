@@ -6,13 +6,12 @@ bib: Blend It Bayes! Data Mining Toolbox (v0.0.2)
 This tooblox is a collection of my favourite data mining wrapper functions. It includes:
 
 * Data processing (normalise, split, denoising etc.)
-* Feature selection (correlation, variable importance etc.)
-* Feature extraction (deep learning with RBM)
+* Feature engineering (selection via cross-validation, extraction via deep learning etc.) 
 * Model parameters fine-tuning (via <a href="http://caret.r-forge.r-project.org" target="_blank">caret</a>)
 * Ensembles (simple averaging, stacking with replacement and Bayesian methods)
 * Data visualisation (mainly via <a href="http://ggplot2.org/" target="_blank">ggplot2</a>)
 * Auto reporting (via <a href="http://ggplot2.org/" target="_blank">ggplot2</a> and <a href="http://yihui.name/knitr/" target="_blank">knitr</a>)
-* Miscellaneous wrapper functions to make life easier ([see example usage](README_misc.md))
+* Miscellaneous wrapper functions to make life easier 
 
 Please note that this package is still at its early stage. **First stable release will be version 0.1**.
 
@@ -33,4 +32,10 @@ devtools::install_github("bib", "woobe")
 ```
 
 Enjoy!
+
+## Example Usage
+
+* [Feature engineering](man/README_feature.md)
+* [Miscellaneous](man/README_misc.md)
+
 
