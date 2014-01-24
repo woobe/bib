@@ -8,6 +8,7 @@ select_feature <- function(x, y, method = "fastest", verbose = TRUE) {
   ## Load Package
   suppressMessages(library("randomForest"))
   suppressMessages(library("nnet"))
+  suppressMessages(library("class"))
   
   ## Display?
   if (verbose) {
@@ -51,11 +52,19 @@ select_feature <- function(x, y, method = "fastest", verbose = TRUE) {
   
   ## Mini Function
   mini_rf <- function(x, y, opt) {
+    
+    normalise <- function(x, method = "range") {
+      pp <- preProcess(x, method)
+      return(predict(pp, x))
+    }
+    
     model <- randomForest(x, y, 
                           mtry = opt$mtry,
                           sampsize = opt$sampsize,
                           ntree = opt$ntree,
                           importance = TRUE)
+    
+    
     return(normalise(matrix(model$importance[, 1], ncol=1)))
   }
 
@@ -154,7 +163,7 @@ select_feature <- function(x, y, method = "fastest", verbose = TRUE) {
     time_start <- start_timer()
     
     ## Display
-    cat("[bib]: Evaluating performance with the most important ", opt$size[num_size], "features ...")
+    cat("[bib]: Evaluating the most important ", opt$size[num_size], "features ...")
     
     ## Train and evaluate
     suppressWarnings(eval_temp <- mini_eval(x, y, opt, imp_order, num_size))
@@ -162,8 +171,15 @@ select_feature <- function(x, y, method = "fastest", verbose = TRUE) {
     eval_all[num_size, 2:5] <- eval_temp
     
     ## Display
-    cat(" Mean Acc/R2:", round(eval_temp[4], digits = 2), 
-        "... Duration:", stop_timer(time_start), "seconds.\n")
+    if (is.factor(y)) {
+      cat(" Mean Accuracy:", round(eval_temp[4], digits = 3), 
+          "... Duration:", stop_timer(time_start), "seconds.\n")
+    } else {
+      cat(" Mean R-squared:", round(eval_temp[4], digits = 3), 
+          "... Duration:", stop_timer(time_start), "seconds.\n")
+    }
+    
+    
     
   }
   
@@ -172,16 +188,21 @@ select_feature <- function(x, y, method = "fastest", verbose = TRUE) {
   eval_best[which(eval_all[,5] == max(eval_all[,5])), 1] <- "*Best*"  
   eval_all <- data.frame(eval_all, decision = eval_best)
   
+  ## Output
+  feature_best <- imp_order[1:opt$size[which(eval_all[,5] == max(eval_all[,5]))]]
+  
   ## Display
   if (verbose) {
     ## Display
     cat("\n")
     cat("[bib]: Feature selection summary\n")
     print(eval_all)
+    cat("\n")
+    cat("[bib]: Total number of features selected:", length(feature_best), "\n")
+    cat("[bib]: The name of those features are:", colnames(x[, feature_best]), "\n")
   }
   
   ## Return
-  feature_best <- imp_order[1:opt$size[which(eval_all[,5] == max(eval_all[,5]))]]
   return(feature_best)
   
 }

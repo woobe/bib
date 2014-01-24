@@ -10,7 +10,7 @@ activate_core <- function(num_core = 4) {
   suppressMessages(library(foreach))  
   
   ## Display
-  cat("Activaing parallel processing ... ")
+  cat("[bib]: Activaing parallel processing ... ")
   
   ## Activate Cores
   registerDoSNOW(makeCluster(num_core, type="SOCK"))

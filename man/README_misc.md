@@ -1,8 +1,5 @@
-bib: Blend It Bayes! Data Mining Toolbox
+bib: Miscellaneous wrapper functions
 ===
-
-## Example Usage - Miscellaneous wrapper functions
-
 
 ### activate_core(num_core)
 
@@ -14,7 +11,7 @@ activate_core(8)
 ```
 Output:
 
-Activaing parallel processing ... 8 cores have been successfully activated in 2.254 seconds.
+[bib]: Activaing parallel processing ... 8 cores have been successfully activated in 2.254 seconds.
 ```
 
 ### auto_load(list_pkg)
