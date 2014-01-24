@@ -167,7 +167,7 @@ select_feature <- function(x, y, method = "fastest", verbose = TRUE) {
     
     ## Train and evaluate
     suppressWarnings(eval_temp <- mini_eval(x, y, opt, imp_order, num_size))
-    eval_temp <- cbind(eval_temp, mean(eval_temp))
+    eval_temp <- cbind(eval_temp, round(mean(eval_temp), digits = 3))
     eval_all[num_size, 2:5] <- eval_temp
     
     ## Display
