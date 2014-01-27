@@ -1,7 +1,9 @@
 bib: Feature Engineering
 ===
 
-### select_feature(x, y, method = "fastest", verbose = TRUE)
+### select_feature(x, y, ...)
+
+## Note: just made a major update to this function. The following example is out-of-date.
 
 Select best features in x based on known y (supervised feature selection).
 
@@ -13,6 +15,7 @@ Available methods are "fastest", "fast" and "normal". The key differences are th
 **Load example dataset from author's bitbucket**
 ```
 load(url("http://woobe.bitbucket.org/data/bib/data_science_london.rda"))
+## load("/media/SUPPORT/Repo/woobe.bitbucket.org/data/bib/data_science_london.rda")
 ```
 
 **Activate multiple cores for parallel processing (I use 5 in this case)**
