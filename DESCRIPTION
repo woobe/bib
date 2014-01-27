@@ -8,5 +8,12 @@ Maintainer: Jo-fai Chow <jofai.chow@gmail.com>
 Description: A collection of my favourite data mining algorithms and routines.
 License: MIT
 Depends:
-    R (>= 3.0.0),
-    caret
+    R (>= 3.0.0)
+Imports: 
+    caret,
+    doSNOW,
+    foreach,
+    ff,
+    ffbase,
+    randomForest
+
