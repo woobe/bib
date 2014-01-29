@@ -2,16 +2,16 @@
 
 select_feature <- function(x, y, 
                            resamp_max = 1000,
-                           rf_samp_perc = 0.667,
+                           rf_samp_perc = 0.1,
                            rf_samp_max = 500,
-                           rf_mtry_perc = 0.667,
+                           rf_mtry_perc = 0.1,
                            rf_mtry_max = 500,
                            rf_tree = 100,
-                           num_model_max = 100,
+                           num_model_max = 10,
                            size_perc = seq(0.1, 0.5, 0.05),
-                           num_cv = 5,
+                           num_cv = 4,
                            num_repeat = 1,
-                           num_model_eval = 5,
+                           num_model_eval = 3,
                            verbose = TRUE) {
                            
   ## Timer
@@ -44,13 +44,21 @@ select_feature <- function(x, y,
       return(predict(pp, x))
     }
     
+    ## Down-sampling if needed (for classification only)
+#     if (is.factor(y)) {
+#       xy <- downSample(x_all[1:105471,], y, list = TRUE, yname = "y")
+#       x <- xy$x
+#       y <- xy$y
+#       rm(xy)
+#     }
+    
     ## Re-sampling if needed
     if (nrow(x) > resamp_max) {
       row_sample <- as.integer(createDataPartition(y, p = resamp_max / nrow(x), list = FALSE))
     } else {
       row_sample <- as.integer(c(1:nrow(x)))
     }
-    
+        
     ## Train RF
     if (is.factor(y)) {
       num_class <- length(summary(y[row_sample]))
@@ -110,17 +118,17 @@ select_feature <- function(x, y,
   
   if (is.factor(y)) {
     colnames(eval_all) <- c("num_features", 
-                            "acc_svm", 
+                            "acc_svmR", 
+                            "acc_svmL", 
                             "acc_knn", 
-                            "acc_pcaNNet", 
                             "acc_gbm",
                             "acc_glm",
                             "acc_median")
   } else {
     colnames(eval_all) <- c("num_features", 
-                            "R2_svm", 
+                            "R2_svmR", 
+                            "R2_svmL", 
                             "R2_knn", 
-                            "R2_pcaNNet", 
                             "R2_gbm",
                             "R2_glm",
                             "R2_median")
@@ -160,7 +168,7 @@ select_feature <- function(x, y,
     suppressMessages(
       model_knn <- train(x[row_sample, feature_temp], y[row_sample],
                          method = "knn",
-                         tuneLength = 3,
+                         tuneLength = 1,
                          metric = ifelse(is.factor(y), "Accuracy", "Rsquared"),
                          maximize = TRUE,
                          trControl = ctrl)
@@ -168,8 +176,8 @@ select_feature <- function(x, y,
     
     ## Train a pcaNNet
     suppressMessages(
-      model_pcaNNet <- train(x[row_sample, feature_temp], y[row_sample],
-                             method = "pcaNNet",
+      model_svmL <- train(x[row_sample, feature_temp], y[row_sample],
+                             method = "svmLinear",
                              tuneLength = 1,
                              metric = ifelse(is.factor(y), "Accuracy", "Rsquared"),
                              maximize = TRUE,
@@ -199,14 +207,14 @@ select_feature <- function(x, y,
     ## Store results
     if (is.factor(y)) {
       output_eval <- c(median(model_svm$resample$Accuracy),
+                       median(model_svmL$resample$Accuracy),
                        median(model_knn$resample$Accuracy),
-                       median(model_pcaNNet$resample$Accuracy),
                        median(model_gbm$resample$Accuracy),
                        median(model_glm$resample$Accuracy))
     } else {
       output_eval <- c(median(model_svm$resample$Rsquared),
+                       median(model_svmL$resample$Rsquared),
                        median(model_knn$resample$Rsquared),
-                       median(model_pcaNNet$resample$Rsquared),
                        median(model_gbm$resample$Rsquared),
                        median(model_glm$resample$Rsquared))
     }
@@ -215,7 +223,8 @@ select_feature <- function(x, y,
     return(matrix(output_eval, nrow = 1))
     
   }
-  
+
+
   ## Run evaluation in parallel
   for (num_size in 1:length(size_perc)) {
     
