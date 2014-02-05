@@ -2,3 +2,4 @@
 .Rhistory
 .RData
 *.html
+.sync.ffs_db
