@@ -15,7 +15,7 @@ This tooblox is a collection of my favourite data mining wrapper functions. It i
 
 Please note that this package is still at its early stage. **First stable release will be version 0.1**.
 
-Don't forget to check out my <a href="http://blenditbayes.blogspot.co.uk/search/label/R" target="_blank">blog</a> with random stuff about R!
+Don't forget to check out my <a href="http://bit.ly/blenditbayes" target="_blank">blog</a> with random stuff about R!
 
 ## Installation
 
