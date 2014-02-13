@@ -5,10 +5,6 @@ deactivate_core <- function(num_core = 4, verbose = FALSE) {
   ## Timer
   if (verbose) tt <- start_timer()
   
-  ## Load Packages
-  suppressMessages(library(doSNOW))
-  suppressMessages(library(foreach))  
-  
   ## Display
   if (verbose) cat("De-activaing parallel processing ... ")
   
