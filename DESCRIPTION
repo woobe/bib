@@ -9,6 +9,8 @@ Description: A collection of my favourite data mining algorithms and routines.
 License: MIT
 Depends:
     R (>= 3.0.0),
+    plyr,
+    dplyr,
     caret,
     doSNOW,
     foreach,
@@ -16,4 +18,10 @@ Depends:
     ffbase,
     randomForest,
     quantmod,
-    tseries
+    tseries,
+    shiny,
+    abind,
+    png,
+    ggplot2,
+    ggmap,
+    png
