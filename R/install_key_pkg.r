@@ -41,7 +41,6 @@ install_key_pkg <- function() {
     
   }
   
-  
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ## Install Packages on GitHub
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,6 +55,7 @@ install_key_pkg <- function() {
   list_pkg[5,] <- c("ramnathv", "rMaps", "no")
   list_pkg[6,] <- c("ramnathv", "rblocks", "no")
   list_pkg[7,] <- c("woobe", "rCrimemap", "no")
+  list_pkg[8,] <- c("jbryer", "makeR", "no")
   
   ## Install packages one by one
   for (n_pkg in 1:nrow(list_pkg)) {
