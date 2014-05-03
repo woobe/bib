@@ -38,4 +38,7 @@ Depends:
     png,
     ggplot2,
     ggmap,
-    png
+    png,
+    dummies,
+    domino
+    
