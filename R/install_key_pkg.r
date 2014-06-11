@@ -13,13 +13,14 @@ install_key_pkg <- function() {
     list_pkg <- c("devtools","caret","randomForest","e1071","kernlab","doSNOW",
                   "knitr","doSNOW","Rserve","shiny","forecast","ffbase","gbm",
                   "plyr", "dplyr", "data.table","microbenchmark","ggmap","jsonlite",
-                  "roxygen2", "animation", "Quandl", "quantmod")
+                  "roxygen2", "animation", "Quandl", "quantmod", "gridExtra",
+                  "extrafont", "wesanderson", "bigrf", "d3Network")
     
     ## Install packages one by one
     for (num_pkg in 1:length(list_pkg)) {  
       
       ## Display
-      cat("Checking Package:", list_pkg[num_pkg], "...")
+      cat("\nChecking Package:", list_pkg[num_pkg], "...")
       
       ## Check
       suppressWarnings(
@@ -41,6 +42,16 @@ install_key_pkg <- function() {
     
   }
   
+  
+  ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ## Install EBImage
+  ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  if (!require(EBImage)) {
+    source("http://bioconductor.org/biocLite.R")
+    biocLite("EBImage")
+  }
+  
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ## Install Packages on GitHub
   ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,12 +67,18 @@ install_key_pkg <- function() {
   list_pkg[6,] <- c("ramnathv", "rblocks", "no")
   list_pkg[7,] <- c("woobe", "rCrimemap", "no")
   list_pkg[8,] <- c("jbryer", "makeR", "no")
+  list_pkg[9,] <- c("rstudio", "rmarkdown", "no")
+  list_pkg[10,] <- c("hadley", "tidyr", "no")
+  list_pkg[11,] <- c("taiyun", "recharts", "no")
+  list_pkg[12,] <- c("renkun-ken", "pipeR", "no")
+  list_pkg[13,] <- c("rstudio", "rticles", "no")
+  
   
   ## Install packages one by one
   for (n_pkg in 1:nrow(list_pkg)) {
     
     ## Display
-    cat("Checking Package:", list_pkg[n_pkg,]$author, "/", list_pkg[n_pkg,]$package, "...")
+    cat("\nChecking Package:", list_pkg[n_pkg,]$author, "/", list_pkg[n_pkg,]$package, "...")
     
     ## Check
     suppressWarnings(
